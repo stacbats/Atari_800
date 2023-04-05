@@ -1,0 +1,21 @@
+mads 2.1.4 build 1 (22 Oct 21)
+Source: D:\WUDSN_FILE\ASMFOLDER\Atari800\Testing_assembly\HelloAtari.asm
+     1 				// Text to screen
+     2
+     3 					org $2000		; main part
+     4
+     5 = 0058			SAVEMSG = $0058 ; screen mem address
+     6
+     7 FFFF> 2000-201A> A0 00		ldy #0
+     8
+     9 2002			LOOP	
+    10 2002 B9 0F 20			lda text,y
+    11 2005 91 58			sta (SAVEMSG),y
+    12 2007 C8				iny
+    13 2008 C0 0C			cpy #12				; comparing Y with the value (12)
+    14 200A D0 F6			bne	LOOP			; keep branching until equal
+    15 200C 4C 0C 20			jmp *
+    16 					
+    17 				;DATA
+    18 200F			text
+    19 200F 28 25 2C 2C 2F 00 + 	.byte "HELLO ATARI!"

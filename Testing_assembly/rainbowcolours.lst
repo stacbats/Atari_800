@@ -1,0 +1,19 @@
+mads 2.1.4 build 1 (22 Oct 21)
+Source: D:\WUDSN_FILE\ASMFOLDER\Atari800\Testing_assembly\rainbowcolours.asm
+     1 				// The most famous effect
+     2
+     3 = 022F			SDMACT1 = 559
+     4 = D01A			COLBK  = $d01a ; background colour
+     5 = D40B			VCOUNT = $d40b ; verticol counter
+     6
+     7 					org $2000		; main part
+     8 					
+     9 FFFF> 2000-200D> A9 00	start	lda #0
+    10 2002 8D 2F 02				sta SDMACT1
+    11 					
+    12 2005 AD 0B D4		loop	lda VCOUNT
+    13 2008 8D 1A D0				sta COLBK
+    14 200B 4C 05 20				jmp loop
+    15 					
+    16 02E0-02E1> 00 20			run start 
+    17 					

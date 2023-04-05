@@ -1,0 +1,22 @@
+mads 2.1.4 build 1 (22 Oct 21)
+Source: D:\WUDSN_FILE\ASMFOLDER\Atari800\Testing_assembly\Test2.asm
+     1 				// Text to screen
+     2
+     3 					org $2000			; main part
+     4
+     5 = 0058			SAVEMSG = $0058 		; screen mem address
+     6
+     7 FFFF> 2000-200A> A0 00		ldy #0
+     8 					
+     9 2002 AD 0A 20			lda hello
+    10 2005 91 58			sta (SAVEMSG),y
+    11 					
+    12 2007 4C 07 20			jmp *
+    13 					
+    14 				;DATA
+    15 200A			hello
+    16 200A 21				.byte "A"
+    17
+    18
+    19 				 
+    20 					 
